@@ -15,14 +15,8 @@
   </ion-header>
   <ion-list *ngFor="let item of classification; index as i">
     <ion-item>
-      <!-- <div *ngFor="let item of response | keyvalue"> -->
-        <!-- <p>Outer Loop Item: {{ item.key }}</p> -->
-        <!-- <div *ngFor="let values of [item.value]">
-          <p>Inner Loop Value: {{ values }}</p>
-        </div> -->
-      <!-- </div> -->
       <ion-badge slot="start" color="medium">points {{classification[i].points}}</ion-badge>
-      <ion-label><ion-text>{{classification[i].position}}º {{classification[i].country}}</ion-text></ion-label>
+      <ion-label className="ion-text-center"><ion-text>{{classification[i].position}}º {{classification[i].country}}</ion-text></ion-label>
       <ion-badge slot="end" color="success">won {{classification[i].won}}</ion-badge>
       <ion-badge slot="end" color="danger">losses {{classification[i].losses}}</ion-badge>
       <ion-badge slot="end" color="medium">tied {{classification[i].tied}}</ion-badge>

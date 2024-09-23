@@ -13,6 +13,19 @@
       <ion-title size="large">Results</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <ion-item-group *ngFor="let item of results | keyvalue">
+    <ion-item>
+      <div *ngFor="let values of [item.value]; index as i">
+        <ion-item-divider><ion-label>{{item.key}}</ion-label></ion-item-divider>
+        <ion-item>
+          <ion-label className="ion-text-center">
+            <ion-text color="values[i].winner === values[i].first_team.country ? 'success':''">{{values[i].first_team.country}} {{values[i].first_team.goals}}</ion-text>
+            <ion-text> X </ion-text>
+            <ion-text color="values[i].winner === values[i].second_team.country ? 'success':''">{{values[i].second_team.country}} {{values[i].second_team.goals}}</ion-text>
+          </ion-label>
+          <ion-note slot="end">{{values[i].date.toString()}}</ion-note>
+        </ion-item>
+      </div>
+    </ion-item>
+  </ion-item-group>
 </ion-content>
