@@ -13,16 +13,19 @@
       <ion-title size="large">Classification</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
-  <ion-list>
+  <ion-list *ngFor="let item of classification; index as i">
     <ion-item>
-      <button onclick={printer}>response1</button>
-      <ion-badge slot="start" color="medium">points</ion-badge>
-      <ion-label><ion-text>º</ion-text></ion-label>
-      <ion-badge slot="end" color="success">won</ion-badge>
-      <ion-badge slot="end" color="success">losses</ion-badge>
-      <ion-badge slot="end" color="success">tied</ion-badge>
+      <!-- <div *ngFor="let item of response | keyvalue"> -->
+        <!-- <p>Outer Loop Item: {{ item.key }}</p> -->
+        <!-- <div *ngFor="let values of [item.value]">
+          <p>Inner Loop Value: {{ values }}</p>
+        </div> -->
+      <!-- </div> -->
+      <ion-badge slot="start" color="medium">points {{classification[i].points}}</ion-badge>
+      <ion-label><ion-text>{{classification[i].position}}º {{classification[i].country}}</ion-text></ion-label>
+      <ion-badge slot="end" color="success">won {{classification[i].won}}</ion-badge>
+      <ion-badge slot="end" color="danger">losses {{classification[i].losses}}</ion-badge>
+      <ion-badge slot="end" color="medium">tied {{classification[i].tied}}</ion-badge>
     </ion-item>
   </ion-list>
 </ion-content>

@@ -6,23 +6,17 @@ import { Observable } from 'rxjs';
     providedIn: 'root',
 })
 export class ApiService {
-    // private apiUrl = 'https://pokeapi.co/api/v2';
+    private apiUrl = 'https://conmebol-api.vercel.app/api/';
 
     constructor(private http: HttpClient) { }
 
-    // getPokemonDetails(id: number): Observable<any> {
-    //     const url = `${this.apiUrl}/pokemon/${id}`;
-    //     return this.http.get(url);
-    // }
-    // authenticate(username: string, password: string) {
-    //     const headers = new HttpHeaders({
-    //         'Content-Type': 'application/x-www-form-urlencoded',
-    //     });
-
-    //     const body = `username=${username}&password=${password}`;
-
-    //     return this.http.post(`${this.apiUrl}/auth`, body, { headers });
-    // }
+    authenticate(username: string, password: string) {
+        const headers = new HttpHeaders({
+            'Content-Type': 'application/x-www-form-urlencoded',
+        });
+        const body = `username=${username}&password=${password}`;
+        return this.http.post(`${this.apiUrl}/auth`, body, { headers });
+    }
 
     getData(apiUrl: string) {
         return this.http.get(apiUrl);
